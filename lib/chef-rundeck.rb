@@ -315,12 +315,12 @@ def partial_search(type, query='*:*', *args, &block)
   end
   # If you pass a block, or have the start or rows arguments, do raw result parsing
   if Kernel.block_given? || args_hash[:start] || args_hash[:rows]
-    PartialSearch.new.search(type, query, args_hash, &block)
+    Chef::PartialSearch.new.search(type, query, args_hash, &block)
  
   # Otherwise, do the iteration for the end user
   else
     results = Array.new
-    PartialSearch.new.search(type, query, args_hash) do |o|
+    Chef::PartialSearch.new.search(type, query, args_hash) do |o|
         results << o
     end
      results

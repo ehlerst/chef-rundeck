@@ -13,4 +13,4 @@ RUN cd /opt/chef-rundeck; gem build chef-rundeck.gemspec; gem install chef-runde
 
 EXPOSE 9980
 
-CMD ["/usr/local/bundle/bin/chef-rundeck -c /opt/knife/knife.rb -o 0.0.0.0 -t 3600 --partial-search true"]
+CMD ["/usr/local/bundle/bin/chef-rundeck", "-c", "/opt/knife/knife.rb", "-o", "0.0.0.0", "-t", "3600", "--partial-search", "true"]

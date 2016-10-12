@@ -109,6 +109,7 @@ class ChefRundeck < Sinatra::Base
                  'platform' => [ 'platform'],
                  'platform_version' => [ 'platform_version' ],
                  'tags' => [ 'tags' ],
+                 'ipaddress' => [ 'ipaddress' ],
                  'hostname' => [hostname]
                }  
         if !custom_attributes.nil? then
@@ -186,7 +187,7 @@ def build_node (node, username, hostname, custom_attributes)
       tags="#{xml_escape([ node['roles'], node['recipes'], node['chef_environment'], node['tags']].flatten.join(","))}"
       environment="#{xml_escape(node['chef_environment'])}"
       username="#{xml_escape(username)}"
-      hostname="#{xml_escape(node['hostname'])}"
+      hostname="#{xml_escape(node['ipaddress'])}"
       editUrl="#{xml_escape(ChefRundeck.web_ui_url)}/nodes/#{xml_escape(node['name'])}/edit" #{custom_attributes.nil? ? '/': ''}>
 EOH
      if !custom_attributes.nil? then

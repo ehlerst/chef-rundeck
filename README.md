@@ -12,7 +12,7 @@ Install the gem and fire up chef-rundeck.  Point it at a Chef client config file
 the `-c` flag and provide the URI for your Chef server's web UI.
 
 To use with docker make your config files and mount the volume like this:
-`docker run -d -e 'USER=ec2-uers' -v ~/.chef/chef-rundeck:/opt/knife -p 9980 9980 ehlers320/chef-rundeck:latest`
+`docker run -d -e 'USER=${job.username}' -v ~/.chef/chef-rundeck:/opt/knife -p 9980:9980 ehlers320/chef-rundeck:latest`
 
 ## Configuration Notes
 

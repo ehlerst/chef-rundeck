@@ -7,9 +7,9 @@ RUN apt-get install git -y
 RUN git clone https://github.com/ehlerst/chef-rundeck.git /opt/chef-rundeck
 
 ### Get deps ready
-RUN gem install jeweler
+RUN gem install bundler
 
-RUN cd /opt/chef-rundeck; gem build chef-rundeck.gemspec; gem install chef-rundeck
+RUN cd /opt/chef-rundeck;bundle install --gemfile=gemfiles/Gemfile.chef-10 ; gem build chef-rundeck.gemspec; gem install chef-rundeck
 
 EXPOSE 9980
 
